@@ -6,7 +6,7 @@ using OrdersApi.Models;
 
 namespace OrdersApi.Contracts
 {
-    public interface IOrderRepository
+    public interface IOrdersRepository
     {
         public List<Order> GetOrders();
         public Order GetOrder(int orderId);

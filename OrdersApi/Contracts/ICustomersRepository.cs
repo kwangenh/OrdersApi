@@ -6,9 +6,9 @@ using OrdersApi.Models;
 
 namespace OrdersApi.Contracts
 {
-    public interface ICustomerRepository
+    public interface ICustomersRepository
     {
-        public List<Customer> GetCustomer();
+        public List<Customer> GetCustomers();
         public Customer GetCustomer(int customerId);
         public Customer CreateCustomer(Customer thisCustomer);
         public Customer DeleteCustomer(int customerId);
