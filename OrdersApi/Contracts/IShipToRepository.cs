@@ -6,7 +6,7 @@ using OrdersApi.Models;
 
 namespace OrdersApi.Contracts
 {
-    public interface IShipTosRepository
+    public interface IShipToRepository
     {
         public List<ShipTo> GetShipTos();
         public ShipTo GetShipTo(int shipToId);

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OrdersApi.Contracts
 {
-    public interface IOrderItemsRepository
+    public interface IOrderItemRepository
     {
         public List<OrderItem> GetOrderItems();
         public OrderItem GetOrderItem(int orderItemId);

@@ -7,7 +7,7 @@ using OrdersApi.Models;
 
 namespace OrdersApi.Repositories
 {
-    public class OrdersRepository : IOrdersRepository
+    public class OrderRepository : IOrderRepository
     {
         public List<Order> GetOrders()
         {

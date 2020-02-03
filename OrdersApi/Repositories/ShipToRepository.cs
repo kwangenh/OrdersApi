@@ -7,29 +7,29 @@ using OrdersApi.Models;
 
 namespace OrdersApi.Repositories
 {
-    public class OrderItemsRepository : IOrderItemsRepository
+    public class ShipToRepository :IShipToRepository
     {
-        public List<OrderItem> GetOrderItems()
+        public List<ShipTo> GetShipTos()
         {
             throw new NotImplementedException();
         }
 
-        public OrderItem GetOrderItem(int orderItemId)
+        public ShipTo GetShipTo(int shipToId)
         {
             throw new NotImplementedException();
         }
 
-        public OrderItem CreateOrderItem(OrderItem thisOrderItem)
+        public ShipTo CreateShipTo(ShipTo thisShipTo)
         {
             throw new NotImplementedException();
         }
 
-        public OrderItem DeleteOrderItem(int orderItemId)
+        public ShipTo DeleteShipTo(int shipToId)
         {
             throw new NotImplementedException();
         }
 
-        public OrderItem EditOrderItem(OrderItem thisOrderItem)
+        public ShipTo EditShipTo(ShipTo thisShipTo)
         {
             throw new NotImplementedException();
         }

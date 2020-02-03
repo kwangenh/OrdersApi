@@ -5,8 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using OrdersApi.Models;
+using OrdersApi.Repositories;
+using OrdersApi.Contracts;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace OrdersApi
 {
@@ -14,8 +20,26 @@ namespace OrdersApi
     {
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+
+        private IConfiguration _config;
+        public Startup (IConfiguration config)
+        {
+            _config = config;
+        }
+
+
+        // needed to manually add microsoft.entityframeworkcore.sqlserver nuget package
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContextPool<OrdersDb>(options => options.UseSqlServer(_config.GetConnectionString("OrdersDb")));
+
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IItemRepository, ItemRepository>();
+            services.AddScoped<IOrderItemRepository, OrderItemRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IShipToRepository, ShipToRepository>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
