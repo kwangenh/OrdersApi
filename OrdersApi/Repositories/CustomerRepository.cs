@@ -9,9 +9,16 @@ namespace OrdersApi.Repositories
 {
     public class CustomerRepository : ICustomerRepository
     {
+        public readonly OrdersDb _context;
+
+        public CustomerRepository(OrdersDb context)
+        {
+            _context = context;
+        }
+
         public List<Customer> GetCustomers()
         {
-            throw new NotImplementedException();
+            return _context.Customer.ToList();
         }
 
         public Customer GetCustomer(int customerId)

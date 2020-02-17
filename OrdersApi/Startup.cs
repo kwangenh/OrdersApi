@@ -31,15 +31,11 @@ namespace OrdersApi
         // needed to manually add microsoft.entityframeworkcore.sqlserver nuget package
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
+            services.ConfigureCors();
+            services.RegisterRepos();
+
             services.AddDbContextPool<OrdersDb>(options => options.UseSqlServer(_config.GetConnectionString("OrdersDb")));
-
-            services.AddScoped<ICustomerRepository, CustomerRepository>();
-            services.AddScoped<IItemRepository, ItemRepository>();
-            services.AddScoped<IOrderItemRepository, OrderItemRepository>();
-            services.AddScoped<IOrderRepository, OrderRepository>();
-            services.AddScoped<IShipToRepository, ShipToRepository>();
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
